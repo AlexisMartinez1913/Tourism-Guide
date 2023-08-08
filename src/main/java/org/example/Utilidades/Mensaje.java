@@ -6,6 +6,7 @@ public enum Mensaje {
     FORMATO_UBICACION("La ubicacion debe ser un numero"),
     FORMATO_NIT("El NIT debe contener ser solo numeros"),
     LONGITUD_NIT("El nombre de la empresa no puede sobrepasar los 30 caracteres"),
+    FORMATO_TITULO_OFERTA("El titulo de la oferta no puede sobrepasar los 20 caracteres"),
     FORMATO_CORREO("Revise el formato del correo");
 
     private String mensaje;
