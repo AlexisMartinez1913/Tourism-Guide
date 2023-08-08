@@ -71,7 +71,13 @@ public class Usuario {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+        try {
+            this.usuarioValidacion.validarCorreo(correo);
+            this.correo = correo;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     public Integer getUbicacion() {

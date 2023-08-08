@@ -1,5 +1,6 @@
 package org.example.Validaciones;
 
+import org.example.Utilidades.Mensaje;
 import org.example.Utilidades.Util;
 
 public class LocalValidacion {
@@ -7,7 +8,7 @@ public class LocalValidacion {
     public Boolean validarNit(String nit) throws Exception{
         String regexNumeros = "^[0-9]+$";
         if(!util.buscarCoincidencia(nit,regexNumeros)){
-            throw new Exception("El NIT debe contener ser solo numeros");
+            throw new Exception(Mensaje.FORMATO_NIT.getMensaje());
         }
         if(nit.length()!=10){
             throw new Exception("El campo nit debe tener  10 dígitos");
@@ -17,7 +18,7 @@ public class LocalValidacion {
     }
     public Boolean valdarNombreEmpresa(String nombre) throws Exception{
         if(nombre.length()>30){
-            throw new Exception("El nombre de la empresa no puede sobrepasar los 30 caracteres");
+            throw new Exception(Mensaje.LONGITUD_NIT.getMensaje());
         }
         return true;
     }
