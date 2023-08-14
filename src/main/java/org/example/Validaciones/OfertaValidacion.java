@@ -26,22 +26,31 @@ public class OfertaValidacion {
         }
         return true;
     }
-    public Boolean validarFormatoFechas(LocalDate fechaInicio, LocalDate fechaFin) throws Exception{
+    public Boolean validarFormatoFechaInicio(LocalDate fechaInicio) throws Exception{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        if(fechaInicio == null || fechaFin == null){
+        if(fechaInicio == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
         String fechaInicioStr = fechaInicio.format(formatter);
-        String fechaFinStr = fechaFin.format(formatter);
+        //String fechaFinStr = fechaFin.format(formatter);
 
         if(!fechaInicio.format(formatter).equals(fechaInicioStr)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
-        if(!fechaFin.format(formatter).equals(fechaFinStr)){
+
+        return true;
+    }
+    public Boolean validarFormatoFechaFin(LocalDate fechaFinal) throws Exception{
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        if(fechaFinal == null){
+            throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
+        }
+        String fechaFinStr = fechaFinal.format(formatter);
+        //String fechaFinStr = fechaFin.format(formatter);
+
+        if(!fechaFinal.format(formatter).equals(fechaFinStr)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
-
-
 
         return true;
     }

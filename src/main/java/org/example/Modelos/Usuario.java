@@ -85,6 +85,12 @@ public class Usuario {
     }
 
     public void setUbicacion(Integer ubicacion) {
-        this.ubicacion = ubicacion;
+        try{
+            this.usuarioValidacion.validarUbicacion(ubicacion);
+            this.ubicacion = ubicacion;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 }

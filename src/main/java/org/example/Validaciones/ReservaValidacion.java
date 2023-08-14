@@ -11,7 +11,7 @@ public class ReservaValidacion {
         if(fechaReserva == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
-        
+
         String fechaReservaStr = fechaReserva.format(formatter);
 
         if(!fechaReserva.format(formatter).equals(fechaReservaStr)){
@@ -25,5 +25,13 @@ public class ReservaValidacion {
             throw new Exception(Mensaje.CANTIDAD_PERSONAS_RESERVA.getMensaje());
         }
         return true;
+    }
+    //Tenga en cuenta que a cada reserva se le debe cobrar un IVA del 19%
+    //aplicada sobre el costoTotal previamente calculado
+    public double costoTotalConIVA(double costoTotal){
+        double IVA = 0.19;
+        double costoMasIva = costoTotal *(1+IVA);
+        return costoMasIva;
+
     }
 }

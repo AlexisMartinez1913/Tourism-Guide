@@ -1,6 +1,9 @@
 package org.example.Modelos;
 
+import org.example.Validaciones.ReservaValidacion;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Reserva {
     private Integer id;
@@ -8,6 +11,8 @@ public class Reserva {
     private Integer idOferta;
     private Double costoTotal;
     private LocalDate fechaReserva;
+
+    private ReservaValidacion reservaValidacion = new ReservaValidacion();
 
     public Reserva() {
     }
@@ -68,6 +73,16 @@ public class Reserva {
     }
 
     public void setFechaReserva(LocalDate fechaReserva) {
-        this.fechaReserva = fechaReserva;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            String fechaReservaStr = fechaReserva.format(formatter);
+            LocalDate parseDate = LocalDate.parse(fechaReservaStr,formatter);
+            this.reservaValidacion.validarFecha(parseDate);
+            this.fechaReserva = fechaReserva;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+
     }
 }

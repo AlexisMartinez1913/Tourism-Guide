@@ -1,5 +1,7 @@
 package org.example.Modelos;
 
+import org.example.Validaciones.OfertaValidacion;
+
 import java.time.LocalDate;
 
 public class Oferta {
@@ -10,6 +12,8 @@ public class Oferta {
     private LocalDate fechaFin;
     private Double costoPersona;
     private Integer idLocal;
+
+    private OfertaValidacion ofertaValidacion = new OfertaValidacion();
 
     public Oferta() {
     }
@@ -50,7 +54,14 @@ public class Oferta {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        try {
+            this.ofertaValidacion.validarTitulo(titulo);
+            this.titulo = titulo;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+
     }
 
     public String getDescripcion() {
@@ -66,6 +77,7 @@ public class Oferta {
     }
 
     public void setFechaInicio(LocalDate fechaInicio) {
+
         this.fechaInicio = fechaInicio;
     }
 
@@ -82,7 +94,13 @@ public class Oferta {
     }
 
     public void setCostoPersona(Double costoPersona) {
-        this.costoPersona = costoPersona;
+        try {
+            this.ofertaValidacion.validarCostoPersona(costoPersona);
+            this.costoPersona = costoPersona;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     public Integer getIdLocal() {
