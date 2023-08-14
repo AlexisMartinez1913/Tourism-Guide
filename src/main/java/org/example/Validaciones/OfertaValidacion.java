@@ -17,27 +17,37 @@ public class OfertaValidacion {
 
     }
     public Boolean validarFechaInicioFinal(LocalDate fechaInicio, LocalDate fechaFinal) throws Exception{
+        if(fechaInicio == null || fechaFinal == null){
+            throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
+        }
+
         if(fechaInicio.isAfter(fechaFinal)){
-            throw new Exception("La fecha de inicio no puede ser mayor que la fecha de fin");
+            throw new Exception(Mensaje.FECHA_INICIO.getMensaje());
         }
         return true;
     }
     public Boolean validarFormatoFechas(LocalDate fechaInicio, LocalDate fechaFin) throws Exception{
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD/MM/YYYY");
-        if(!fechaInicio.equals(formatter)){
-            throw new Exception("el formato debe ser DD/MM/YYYY");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        if(fechaInicio == null || fechaFin == null){
+            throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
-        if(!fechaFin.equals(formatter)){
-            throw new Exception("el formato debe ser DD/MM/YYYY");
+        String fechaInicioStr = fechaInicio.format(formatter);
+        String fechaFinStr = fechaFin.format(formatter);
+
+        if(!fechaInicio.format(formatter).equals(fechaInicioStr)){
+            throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
+        }
+        if(!fechaFin.format(formatter).equals(fechaFinStr)){
+            throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
 
-        LocalDate validar = LocalDate.parse("", DateTimeFormatter.ofPattern("DD/MM/YYYY"));
+
 
         return true;
     }
     public Boolean validarCostoPersona(Double costoPersona) throws Exception{
         if(costoPersona<0){
-            throw new Exception("El costo no puede ser negativo");
+            throw new Exception(Mensaje.COSTO_PERSONA.getMensaje());
         }
         return  true;
     }
