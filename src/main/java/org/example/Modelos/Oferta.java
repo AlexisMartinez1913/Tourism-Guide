@@ -99,8 +99,8 @@ public class Oferta {
     public void setFechaFin(String fechaFin) {
         try {
             this.ofertaValidacion.validarFormatoFechaFin(fechaFin);
-            this.ofertaValidacion.validarFechaInicioFinal(this.fechaInicio, this.util.convertirString(fechaFin, "DD/MM/YYYY"));
-            LocalDate fechaCorrecta = this.util.convertirString(fechaFin, "DD/MM/YYYY");
+            this.ofertaValidacion.validarFechaInicioFinal(this.fechaInicio, this.util.convertirString(fechaFin, "dd/MM/yyyy"));
+            LocalDate fechaCorrecta = this.util.convertirString(fechaFin, "dd/MM/yyyy");
             this.fechaFin = fechaCorrecta;
         }catch (Exception ex){
             System.out.println(ex.getMessage());

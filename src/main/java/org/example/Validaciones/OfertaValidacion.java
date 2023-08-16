@@ -28,7 +28,7 @@ public class OfertaValidacion {
     }
     public Boolean validarFormatoFechaInicio(String fechaInicio) throws Exception{
 
-        String expresionRegularFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
+        String expresionRegularFormatoFecha = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
         if(fechaInicio == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
@@ -40,7 +40,7 @@ public class OfertaValidacion {
         return true;
     }
     public Boolean validarFormatoFechaFin(String fechaFinal) throws Exception{
-        String expresionRegularFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
+        String expresionRegularFormatoFecha = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
         if(fechaFinal == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
@@ -48,7 +48,6 @@ public class OfertaValidacion {
         if(!util.buscarCoincidencia(fechaFinal, expresionRegularFormatoFecha)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
-
 
         return true;
     }

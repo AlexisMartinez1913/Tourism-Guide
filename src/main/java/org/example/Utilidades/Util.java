@@ -23,7 +23,7 @@ public class Util {
 
     public LocalDate convertirString(String fecha, String formato){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formato);
-        LocalDate fechaForm = LocalDate.parse(fecha,formatter );
+        LocalDate fechaForm = LocalDate.parse(fecha,formatter);
         return  fechaForm;
     }
 }

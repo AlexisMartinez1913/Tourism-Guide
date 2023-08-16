@@ -10,7 +10,7 @@ public class ReservaValidacion {
     Util util = new Util();
     public Boolean validarFormatoFecha(String fechaReserva) throws Exception{
 
-        String expresionFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
+        String expresionFormatoFecha = "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\\d{4}$";
         if(fechaReserva == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
