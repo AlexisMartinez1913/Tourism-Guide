@@ -2,30 +2,44 @@ package org.example;
 
 
 import org.example.Modelos.Local;
+import org.example.Modelos.Oferta;
+import org.example.Modelos.Reserva;
 import org.example.Modelos.Usuario;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String name;
-        String nameCompany;
-        String correo;
+
+        String fechaReserva;
         System.out.println("Ingrese un nombre: ");
         name = sc.nextLine();
-        System.out.println("Ingrese el nombre de la empresa: ");
-        nameCompany = sc.nextLine();
-        System.out.println("Ingrese un correo: ");
-        correo = sc.nextLine();
+        System.out.println("Ingrese la fecha de la reserva: ");
+        fechaReserva = sc.nextLine();
+
+        //datos oferta
+        String fechaIncio;
+        String fechaFinal;
+        System.out.println("Ingrese la fecha de inicio: ");
+        fechaIncio = sc.nextLine();
+        System.out.println("Ingrese la fecha final: ");
+        fechaFinal = sc.nextLine();
+        Oferta of1 = new Oferta();
+
+
         Usuario p1 = new Usuario();
         Local l1 = new Local();
+        Reserva r1 = new Reserva();
         p1.setNombres(name);
-        l1.setNombre(nameCompany);
-        p1.setCorreo(correo);
-        System.out.println(p1.getNombres());
-        System.out.println(l1.getNombre());
-        System.out.println(p1.getCorreo());
+
+        r1.setFechaReserva(fechaReserva);
+
+        of1.setFechaInicio(fechaIncio);
+        of1.setFechaFin(fechaFinal);
+
 
 
 

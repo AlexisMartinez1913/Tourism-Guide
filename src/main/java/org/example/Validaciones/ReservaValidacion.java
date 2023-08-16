@@ -1,20 +1,21 @@
 package org.example.Validaciones;
 
 import org.example.Utilidades.Mensaje;
+import org.example.Utilidades.Util;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class ReservaValidacion {
-    public Boolean validarFecha(LocalDate fechaReserva) throws Exception{
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    Util util = new Util();
+    public Boolean validarFormatoFecha(String fechaReserva) throws Exception{
+
+        String expresionFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
         if(fechaReserva == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
 
-        String fechaReservaStr = fechaReserva.format(formatter);
-
-        if(!fechaReserva.format(formatter).equals(fechaReservaStr)){
+        if(!util.buscarCoincidencia(fechaReserva, expresionFormatoFecha)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
 

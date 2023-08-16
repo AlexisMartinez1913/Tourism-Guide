@@ -11,7 +11,7 @@ public class LocalValidacion {
             throw new Exception(Mensaje.FORMATO_NIT.getMensaje());
         }
         if(nit.length()!=10){
-            throw new Exception("El campo nit debe tener  10 dígitos");
+            throw new Exception(Mensaje.TAMANIO_NIT.getMensaje());
         }
         return true;
 

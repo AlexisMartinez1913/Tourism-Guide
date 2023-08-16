@@ -21,36 +21,34 @@ public class OfertaValidacion {
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
 
-        if(fechaInicio.isAfter(fechaFinal)){
+        if(fechaFinal.isBefore(fechaInicio)){
             throw new Exception(Mensaje.FECHA_INICIO.getMensaje());
         }
         return true;
     }
-    public Boolean validarFormatoFechaInicio(LocalDate fechaInicio) throws Exception{
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public Boolean validarFormatoFechaInicio(String fechaInicio) throws Exception{
+
+        String expresionRegularFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
         if(fechaInicio == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
-        String fechaInicioStr = fechaInicio.format(formatter);
-        //String fechaFinStr = fechaFin.format(formatter);
 
-        if(!fechaInicio.format(formatter).equals(fechaInicioStr)){
+        if(!util.buscarCoincidencia(fechaInicio, expresionRegularFormatoFecha)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
 
         return true;
     }
-    public Boolean validarFormatoFechaFin(LocalDate fechaFinal) throws Exception{
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public Boolean validarFormatoFechaFin(String fechaFinal) throws Exception{
+        String expresionRegularFormatoFecha = "^([0-2][0-9]|3[0-1])(\\/|-)(0[1-9]|1[0-2])\\2(\\d{4})$";
         if(fechaFinal == null){
             throw new Exception(Mensaje.FECHAS_NULAS.getMensaje());
         }
-        String fechaFinStr = fechaFinal.format(formatter);
-        //String fechaFinStr = fechaFin.format(formatter);
 
-        if(!fechaFinal.format(formatter).equals(fechaFinStr)){
+        if(!util.buscarCoincidencia(fechaFinal, expresionRegularFormatoFecha)){
             throw new Exception(Mensaje.FECHA_FORMATO.getMensaje());
         }
+
 
         return true;
     }

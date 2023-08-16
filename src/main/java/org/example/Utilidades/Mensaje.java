@@ -6,6 +6,7 @@ public enum Mensaje {
     FORMATO_UBICACION("La ubicacion debe ser un numero"),
     FORMATO_NIT("El NIT debe contener ser solo numeros"),
     LONGITUD_NIT("El nombre de la empresa no puede sobrepasar los 30 caracteres"),
+    TAMANIO_NIT("El campo nit debe tener  10 dígitos"),
     FORMATO_TITULO_OFERTA("El titulo de la oferta no puede sobrepasar los 20 caracteres"),
     COSTO_PERSONA("El costo no puede ser negativo"),
     FECHAS_NULAS("Las fechas no pueden ser nulas"),

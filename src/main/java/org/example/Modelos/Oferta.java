@@ -1,8 +1,10 @@
 package org.example.Modelos;
 
+import org.example.Utilidades.Util;
 import org.example.Validaciones.OfertaValidacion;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Oferta {
     private Integer id;
@@ -14,6 +16,7 @@ public class Oferta {
     private Integer idLocal;
 
     private OfertaValidacion ofertaValidacion = new OfertaValidacion();
+    Util util = new Util();
 
     public Oferta() {
     }
@@ -76,17 +79,33 @@ public class Oferta {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
+        try {
+            this.ofertaValidacion.validarFormatoFechaInicio(fechaInicio);
+            DateTimeFormatter formatoDeseado = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate fechaReservaFormateada = LocalDate.parse(fechaInicio,formatoDeseado);
+            this.fechaInicio = fechaReservaFormateada;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
 
-        this.fechaInicio = fechaInicio;
+
     }
 
     public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaFin(String fechaFin) {
+        try {
+            this.ofertaValidacion.validarFormatoFechaFin(fechaFin);
+            this.ofertaValidacion.validarFechaInicioFinal(this.fechaInicio, this.util.convertirString(fechaFin, "DD/MM/YYYY"));
+            LocalDate fechaCorrecta = this.util.convertirString(fechaFin, "DD/MM/YYYY");
+            this.fechaFin = fechaCorrecta;
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     public Double getCostoPersona() {

@@ -72,13 +72,12 @@ public class Reserva {
         return fechaReserva;
     }
 
-    public void setFechaReserva(LocalDate fechaReserva) {
+    public void setFechaReserva(String fechaReserva) {
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String fechaReservaStr = fechaReserva.format(formatter);
-            LocalDate parseDate = LocalDate.parse(fechaReservaStr,formatter);
-            this.reservaValidacion.validarFecha(parseDate);
-            this.fechaReserva = fechaReserva;
+            this.reservaValidacion.validarFormatoFecha(fechaReserva);
+            DateTimeFormatter formatoDeseado = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+            LocalDate fechaReservaFormateada = LocalDate.parse(fechaReserva,formatoDeseado);
+            this.fechaReserva = fechaReservaFormateada;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
