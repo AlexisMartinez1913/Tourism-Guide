@@ -24,7 +24,6 @@ class UsuarioValidacionTest {
                 this.usuarioValidacion.validarNombre(nombrePrueba));
         Assertions.assertEquals(Mensaje.LONGITUD_NOMBRE.getMensaje(), respuesta.getMessage());
 
-        //verificar
 
     }
     @Test
@@ -49,8 +48,8 @@ class UsuarioValidacionTest {
     }
     @Test
     public void validarCorreoIncorrecto(){
-        String correoPrueba = "alexiscom";
-        Exception respuesta = Assertions.assertThrows(Exception.class, ()->this.usuarioValidacion.validarCorreo(correoPrueba));
+        String correoPrueba = "alexisco";
+        Exception respuesta = Assertions.assertThrows(Exception.class, () ->this.usuarioValidacion.validarCorreo(correoPrueba));
         Assertions.assertEquals(Mensaje.FORMATO_CORREO.getMensaje(), respuesta.getMessage());
     }
 
