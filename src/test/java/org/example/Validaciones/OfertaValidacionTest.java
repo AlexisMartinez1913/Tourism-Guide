@@ -21,7 +21,7 @@ class OfertaValidacionTest {
     public void validad_falla_longitud_nombre(){
         //preparar prueba
         String nombrePrueba = "theuefachampionsleague";
-        
+
         Exception respuesta = Assertions.assertThrows(Exception.class, ()->
                 this.ofertaValidacion.validarTitulo(nombrePrueba));
         Assertions.assertEquals(Mensaje.FORMATO_TITULO_OFERTA.getMensaje(), respuesta.getMessage());

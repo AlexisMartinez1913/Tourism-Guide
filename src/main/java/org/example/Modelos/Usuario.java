@@ -55,6 +55,7 @@ public class Usuario {
         return nombres;
     }
 
+
     public void setNombres(String nombres) {
 
         try {
@@ -91,6 +92,10 @@ public class Usuario {
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
+
+    }
+
+    public void registrarUsuario(){
 
     }
 }

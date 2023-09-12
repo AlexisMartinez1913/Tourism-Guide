@@ -1,12 +1,11 @@
 package org.example;
 
 
-import org.example.Modelos.Local;
+import org.example.Modelos.Empresa;
 import org.example.Modelos.Oferta;
 import org.example.Modelos.Reserva;
 import org.example.Modelos.Usuario;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -31,7 +30,7 @@ public class Main {
 
 
         Usuario p1 = new Usuario();
-        Local l1 = new Local();
+        //Empresa l1 = new Empresa();
         Reserva r1 = new Reserva();
         p1.setNombres(name);
 

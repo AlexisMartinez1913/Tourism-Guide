@@ -13,7 +13,9 @@ public enum Mensaje {
     FECHA_INICIO("La fecha de inicio no puede ser mayor que la fecha de fin"),
     FECHA_FORMATO("El formato debe ser DD/MM/YYYY"),
     CANTIDAD_PERSONAS_RESERVA("El número de personas por reserva no puede ser mayor a 4 personas"),
-    FORMATO_CORREO("Revise el formato del correo");
+    FORMATO_CORREO("Revise el formato del correo"),
+    TOPE_MEMBRESIA("EL TOPE NO PUEDE SER MAYOR 0 IGUAL A 100.000"),
+    COSTO_NEGATIVO_MEMBRESIA("NO PUEDE SER NEGATIVO");
 
     private String mensaje;
 

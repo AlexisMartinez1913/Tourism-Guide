@@ -1,20 +1,20 @@
 package org.example.Modelos;
 
-import org.example.Validaciones.LocalValidacion;
+import org.example.Validaciones.EmpresaValidacion;
 
-public class Local {
+public abstract class Empresa {
     private Integer id;
     private String nit;
     private String nombre;
     private Integer ubicacion;
     private String descripcion;
 
-    private LocalValidacion localValidacion = new LocalValidacion();
+    private EmpresaValidacion empresaValidacion = new EmpresaValidacion();
 
-    public Local() {
+    public Empresa() {
     }
 
-    public Local(Integer id, String nit, String nombre, Integer ubicacion, String descripcion) {
+    public Empresa(Integer id, String nit, String nombre, Integer ubicacion, String descripcion) {
         this.id = id;
         this.nit = nit;
         this.nombre = nombre;
@@ -49,7 +49,7 @@ public class Local {
     public void setNit(String nit) {
 
         try {
-            this.localValidacion.validarNit(nit);
+            this.empresaValidacion.validarNit(nit);
             this.nit = nit;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -63,7 +63,7 @@ public class Local {
 
     public void setNombre(String nombre) {
         try {
-            this.localValidacion.valdarNombreEmpresa(nombre);
+            this.empresaValidacion.valdarNombreEmpresa(nombre);
             this.nombre = nombre;
         }catch (Exception ex){
             System.out.println(ex.getMessage());
@@ -87,4 +87,5 @@ public class Local {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    public abstract Double cobrar();
 }

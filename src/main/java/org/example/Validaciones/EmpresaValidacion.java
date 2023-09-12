@@ -3,7 +3,7 @@ package org.example.Validaciones;
 import org.example.Utilidades.Mensaje;
 import org.example.Utilidades.Util;
 
-public class LocalValidacion {
+public class EmpresaValidacion {
     private Util util = new Util();
     public Boolean validarNit(String nit) throws Exception{
         String regexNumeros = "^[0-9]+$";
