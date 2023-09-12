@@ -15,15 +15,15 @@ class EmpresaValidacionTest {
 
     @Test
     public void validar_falla_caracteres_formato_nit(){
-        String nitPrueba = "7A27062004";
-        boolean respuesta = Assertions.assertDoesNotThrow(()->this.empresaValidacion.validarNit(nitPrueba));
-        Assertions.assertTrue(respuesta);
+        String nit="10005324a0";
+        Exception respuesta=Assertions.assertThrows(Exception.class, ()-> this.empresaValidacion.validarNit(nit));
+        Assertions.assertEquals(Mensaje.FORMATO_NIT,respuesta.getMessage());
 
     }
     @Test
     public void validar_falla_longitud_nit(){
         //preparar prueba
-        String nitPrueba = "12";
+        String nitPrueba = "10005324400";
         //ejecutar
         Exception respuesta = Assertions.assertThrows(Exception.class, ()->
                 this.empresaValidacion.validarNit(nitPrueba));
@@ -40,6 +40,12 @@ class EmpresaValidacionTest {
         String nombrePrueba = "JhonyAlexisMartinezGarcia";
         boolean respuesta = Assertions.assertDoesNotThrow(()->this.empresaValidacion.valdarNombreEmpresa(nombrePrueba));
         Assertions.assertTrue(respuesta);
+    }
+    @Test
+    public void validar_falla_por_longitud_nombre() {
+        String nombre="karinaassssssssssssssssssssssassss";
+        Exception respuesta=Assertions.assertThrows(Exception.class, ()-> this.empresaValidacion.valdarNombreEmpresa(nombre));
+        Assertions.assertEquals(Mensaje.LONGITUD_NIT,respuesta.getMessage());
     }
 
 }

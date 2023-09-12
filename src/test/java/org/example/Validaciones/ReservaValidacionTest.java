@@ -24,10 +24,27 @@ class ReservaValidacionTest {
     }
     @Test
     public void validar_formato_incorrecto_fecha_reserva(){
-        String fechaPrueba = "08/09/2023";
+        String fechaPrueba = "2023/09/12";
         Exception respuesta = Assertions.assertThrows(Exception.class, ()-> this.reservaValidacion.validarFormatoFecha(fechaPrueba));
         Assertions.assertEquals(Mensaje.FECHA_FORMATO.getMensaje(), respuesta.getMessage());
     }
+
+    @Test
+    public void validar_numero_personas_falla() {
+        Integer personas = 5;
+
+        // Aquí asumimos que validarNumeroPersonas lanza una excepción Exception
+        Exception respuesta = Assertions.assertThrows(Exception.class, () -> {
+            this.reservaValidacion.validarNumeroPersonas(personas);
+        });
+
+        // Verificar si el mensaje de la excepción es el esperado
+        String mensajeEsperado = String.valueOf(Mensaje.CANTIDAD_PERSONAS_RESERVA);
+        String mensajeDeLaExcepcion = respuesta.getMessage();
+
+        Assertions.assertEquals(mensajeEsperado, mensajeDeLaExcepcion);
+    }
+
     @Test
     public void validar_numero_personas_correcto(){
         Integer numeroPersonas = 4;

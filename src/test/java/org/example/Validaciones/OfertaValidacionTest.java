@@ -18,7 +18,7 @@ class OfertaValidacionTest {
         this.ofertaValidacion = new OfertaValidacion();
     }
     @Test
-    public void validad_falla_longitud_nombre(){
+    public void validar_falla_longitud_nombre(){
         //preparar prueba
         String nombrePrueba = "theuefachampionsleague";
 
@@ -27,16 +27,26 @@ class OfertaValidacionTest {
         Assertions.assertEquals(Mensaje.FORMATO_TITULO_OFERTA.getMensaje(), respuesta.getMessage());
     }
     @Test
-    public void validar_diferencias_correctas_fechas(){
-        String fechaInicio = "07/09/2023";
-        String fechaFinal = "08/09/2023";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate fecha1 = LocalDate.parse(fechaInicio, formatter);
-        LocalDate fecha2 = LocalDate.parse(fechaFinal, formatter);
-
-        boolean respuesta = Assertions.assertDoesNotThrow(()->
-                this.ofertaValidacion.validarFechaInicioFinal(fecha1,fecha2));
+    public void validar_titulo(){
+        String titulo="aebcdefgh";
+        Boolean respuesta= Assertions.assertDoesNotThrow(()-> this.ofertaValidacion.validarTitulo(titulo));
         Assertions.assertTrue(respuesta);
+    }
+
+    @Test
+    public void validar_diferencia_fechas_correctas(){
+        LocalDate fechaInicio= LocalDate.of(2021,11,11);
+        LocalDate fechaFin= LocalDate.of(2021,12,11);
+        boolean respuesta= Assertions.assertDoesNotThrow(()-> this.ofertaValidacion.validarFechaInicioFinal(fechaInicio, fechaFin));
+        Assertions.assertTrue(respuesta);
+    }
+    @Test
+    public void validar_diferencias_de_fechas_incorrectas(){
+        LocalDate fechaInicio= LocalDate.of(2021,12,11);
+        LocalDate fechaFin= LocalDate.of(2021,11,11);
+        Exception respuesta = Assertions.assertThrows(Exception.class, () ->
+                this.ofertaValidacion.validarFechaInicioFinal(fechaInicio, fechaFin));
+        Assertions.assertEquals(Mensaje.FECHA_INICIO, respuesta.getMessage());
     }
 
     @Test
@@ -55,11 +65,13 @@ class OfertaValidacionTest {
                 this.ofertaValidacion.validarFormatoFechaFin(fechaFinal));
         Assertions.assertTrue(respuesta);
     }
+
+
+
     @Test
-    public void validar_costo_persona_correcto(){
-        Double costoPersona = 20.4;
-        boolean respuesta = Assertions.assertDoesNotThrow(()->
-                this.ofertaValidacion.validarCostoPersona(costoPersona));
+    public void validacion_costo(){
+        Double costo=1234123D;
+        Boolean respuesta= Assertions.assertDoesNotThrow(()-> this.ofertaValidacion.validarCostoPersona(costo));
         Assertions.assertTrue(respuesta);
     }
 }
