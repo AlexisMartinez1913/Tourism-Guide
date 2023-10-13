@@ -1,4 +1,4 @@
-package org.example.Modelos;
+package org.example.Entidades;
 
 public class UsuarioPorEvento extends Usuario{
     private double costoPorEvento;
@@ -9,6 +9,7 @@ public class UsuarioPorEvento extends Usuario{
     public UsuarioPorEvento(Integer id, String documento, String nombres, String correo, Integer ubicacion, double costoPorEvento) {
         super(id, documento, nombres, correo, ubicacion);
         this.costoPorEvento = costoPorEvento;
+
     }
 
     public double getCostoPorEvento() {
@@ -23,3 +24,5 @@ public class UsuarioPorEvento extends Usuario{
 
     }
 }
+
+
