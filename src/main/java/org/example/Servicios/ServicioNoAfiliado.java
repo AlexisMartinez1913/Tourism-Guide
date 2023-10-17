@@ -8,7 +8,6 @@ import org.example.Entidades.UsuarioPorEvento;
 
 public class ServicioNoAfiliado {
 
-    
 
 
     public void registrarNoAfiliado(UsuarioPorEvento usuarioPorEvento) {
@@ -24,10 +23,16 @@ public class ServicioNoAfiliado {
             entityManagerFactory = Persistence.createEntityManagerFactory(configuracionPersistencia);
             entityManager = entityManagerFactory.createEntityManager();
 
+
             //crear un modelo de datos y cargar con informacion
             ModeloUsuarioPorEvento modeloUsuarioPorEvento = new ModeloUsuarioPorEvento();
-            modeloUsuarioPorEvento.setNombres(usuarioPorEvento.getNombres());
             modeloUsuarioPorEvento.setDocumento(usuarioPorEvento.getDocumento());
+            modeloUsuarioPorEvento.setNombres(usuarioPorEvento.getNombres());
+            modeloUsuarioPorEvento.setCorreo(usuarioPorEvento.getCorreo());
+            modeloUsuarioPorEvento.setUbicacion(usuarioPorEvento.getUbicacion());
+            modeloUsuarioPorEvento.setCostoEvento(usuarioPorEvento.getCostoPorEvento());
+
+
 
             //iniciar la transaccion
             entityManager.getTransaction().begin();

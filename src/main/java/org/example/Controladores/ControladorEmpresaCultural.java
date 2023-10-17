@@ -1,6 +1,5 @@
 package org.example.Controladores;
 
-<<<<<<< HEAD
 import org.example.Entidades.EmpresaCultural;
 import org.example.Servicios.ServicioEmpresaCultural;
 
@@ -22,7 +21,7 @@ public class ControladorEmpresaCultural {
         this.servicioEmpresaCultural.registrarEmpresaCultural(empresaCultural);
 
     }
-=======
-public class ControladorEmpresaCultural {
->>>>>>> 83e9c3214a7e5267f2747c69bafc82d15d23ced0
+
+
+
 }

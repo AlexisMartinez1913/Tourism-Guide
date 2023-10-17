@@ -26,9 +26,9 @@ public class ServicioAfiliado {
             ModeloUsuarioMembresia modeloUsuarioMembresia = new ModeloUsuarioMembresia();
             modeloUsuarioMembresia.setNombres(usuarioMembresia.getNombres());
             modeloUsuarioMembresia.setDocumento(usuarioMembresia.getDocumento());
-
             modeloUsuarioMembresia.setCorreo(usuarioMembresia.getCorreo());
             modeloUsuarioMembresia.setUbicacion(usuarioMembresia.getUbicacion());
+            modeloUsuarioMembresia.setCostoMensualidad(usuarioMembresia.getCostoMensual());
 
 
             //iniciar la transaccion
