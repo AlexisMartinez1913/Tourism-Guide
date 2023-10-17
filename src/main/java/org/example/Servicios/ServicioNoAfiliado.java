@@ -8,6 +8,9 @@ import org.example.Entidades.UsuarioPorEvento;
 
 public class ServicioNoAfiliado {
 
+    
+
+
     public void registrarNoAfiliado(UsuarioPorEvento usuarioPorEvento) {
 
         //nombre del traductor para hacer la persistencia
