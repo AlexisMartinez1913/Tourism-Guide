@@ -57,7 +57,7 @@ public class ServicioNoAfiliado {
                 entityManager.close();
             }
             if (entityManagerFactory!=null) {
-                entityManager.close();
+                entityManagerFactory.close();
             }
         }
 

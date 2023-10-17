@@ -17,7 +17,8 @@ public class Main {
 
         ControladorEmpresaCultural controladorEmpresaCultural = new ControladorEmpresaCultural();
         //metodo para guardar afiliado
-        controladorAfiliado.registrarAfiliado("AndresGuerrero", "122455555","ag@gmail.com",3,50000);
+        //controladorAfiliado.registrarAfiliado("AndresGuerrero", "122455555","ag@gmail.com",3,50000);
+
         //metodo para guardar no afiliado
         //controladorNoAfiliado.registrarNoAfiliado("122355555", "KarinaGuerro",
           //      "ka@gmail.com",2,100000);
@@ -26,6 +27,14 @@ public class Main {
 
 
         //controladorNoAfiliado.registrarNoAfiliado("123444444", "AndresGuerreroC","agc@gmail.com",2,30000);
+
+        //construir un menu de opciones
+        //1. registrar afiliado
+        //2. ver afiliado
+        //3. registrar afiliado por evento
+        //4. ver afiliado eventos
+        //
+        controladorAfiliado.consultarAfiliados();
 
 
 

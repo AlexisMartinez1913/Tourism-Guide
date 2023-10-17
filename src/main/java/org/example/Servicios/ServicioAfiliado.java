@@ -58,12 +58,38 @@ public class ServicioAfiliado {
                 entityManager.close();
             }
             if (entityManagerFactory!=null) {
-                entityManager.close();
+                entityManagerFactory.close();
             }
         }
 
     }
     public List<ModeloUsuarioMembresia> buscarAfiliados() {
-        return null;
+
+        String configuracionPersistencia = "conexionbd";
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager = null;
+
+        try {
+            entityManagerFactory = Persistence.createEntityManagerFactory(configuracionPersistencia);
+            entityManager = entityManagerFactory.createEntityManager();
+            // establecer una consulta para traer la BD
+            String jpqlConsulta = "SELECT af FROM ModeloUsuarioMembresia af";
+            //ejecutar consulta - lista de datos
+            List<ModeloUsuarioMembresia> afiliado = entityManager.createQuery(jpqlConsulta, ModeloUsuarioMembresia.class).getResultList();
+            return afiliado;
+
+
+        } catch (Exception ex) {
+            System.out.println("Error "+ ex.getMessage());
+            return null;
+        }finally {
+            if(entityManager!= null){
+                entityManager.close();
+            }
+            if (entityManagerFactory!=null) {
+                entityManagerFactory.close();
+            }
+        }
+
     }
 }

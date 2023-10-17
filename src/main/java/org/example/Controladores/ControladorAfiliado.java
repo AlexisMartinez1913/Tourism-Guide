@@ -1,7 +1,10 @@
 package org.example.Controladores;
 
 import org.example.Entidades.UsuarioMembresia;
+import org.example.ModeloDatos.ModeloUsuarioMembresia;
 import org.example.Servicios.ServicioAfiliado;
+
+import java.util.List;
 
 public class ControladorAfiliado {
     //llamar a la clase que valida
@@ -23,4 +26,15 @@ public class ControladorAfiliado {
         this.servicioAfiliado.registrarAfiliado(usuarioMembresia);
 
     }
+    public void consultarAfiliados() {
+        List<ModeloUsuarioMembresia> afiliados = servicioAfiliado.buscarAfiliados();
+        for (ModeloUsuarioMembresia afiliado: afiliados) {
+            System.out.println("Nombre: " + afiliado.getNombres());
+            System.out.println("Documento: " + afiliado.getDocumento());
+            System.out.println("Correo: " + afiliado.getCorreo());
+            System.out.println("Ubicacion: " + afiliado.getUbicacion());
+
+        }
+    }
+
 }

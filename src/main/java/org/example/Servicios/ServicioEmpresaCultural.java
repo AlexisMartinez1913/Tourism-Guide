@@ -44,6 +44,7 @@ public class ServicioEmpresaCultural {
             if (entityManager != null) {
                 entityManager.close();
             }
+
         }
 
     }
