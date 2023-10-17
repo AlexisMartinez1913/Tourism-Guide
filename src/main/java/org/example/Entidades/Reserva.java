@@ -1,4 +1,4 @@
-package org.example.Modelos;
+package org.example.Entidades;
 
 import org.example.Validaciones.ReservaValidacion;
 

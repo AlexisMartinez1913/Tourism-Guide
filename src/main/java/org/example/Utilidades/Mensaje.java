@@ -15,7 +15,12 @@ public enum Mensaje {
     CANTIDAD_PERSONAS_RESERVA("El número de personas por reserva no puede ser mayor a 4 personas"),
     FORMATO_CORREO("Revise el formato del correo"),
     TOPE_MEMBRESIA("EL TOPE NO PUEDE SER MAYOR 0 IGUAL A 100.000"),
-    COSTO_NEGATIVO_MEMBRESIA("NO PUEDE SER NEGATIVO");
+    COSTO_NEGATIVO_MEMBRESIA("NO PUEDE SER NEGATIVO"),
+    //costo negativo para usuario no registardo
+    COSTO_NEGATIVO_PAGO_POR_EVENTO("EL VALOR NO PUEDE SER NEGATIVO"),
+
+    //tope precio a usuario no registrado
+    TOPE_VALOR_PAGADO_POR_EVENTO("EL VALOR NO DEBE SUPERAR LOS 200.000");
 
     private String mensaje;
 
