@@ -11,16 +11,20 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
 
     /*
     * atributos para agregar invitados*/
-    private Usuario invitado;
+    private String nombreInvitado;
+    private Integer cedulaInvitado;
     private LocalDate fechaInvitacion;
 
     public UsuarioMembresia() {
     }
 
-    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, String contrasena, UsuarioValidacion usuarioValidacion, Double costoMensual) {
+    public UsuarioMembresia(Integer id, String documento, String nombres, String correo, Integer ubicacion, String contrasena, UsuarioValidacion usuarioValidacion, Double costoMensual, String nombreInvitado, Integer cedulaInvitado, LocalDate fechaInvitacion) {
         super(id, documento, nombres, correo, ubicacion, contrasena, usuarioValidacion);
-
         this.costoMensual = costoMensual;
+        this.nombreInvitado = nombreInvitado;
+        this.cedulaInvitado = cedulaInvitado;
+        this.fechaInvitacion = fechaInvitacion;
+
         // Validar que el costo mensual no supere los $100000 COP
         if(costoMensual<=100000) {
             this.costoMensual = costoMensual;
@@ -37,10 +41,29 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
         this.costoMensual = costoMensual;
     }
 
+    public String getNombreInvitado() {
+        return nombreInvitado;
+    }
 
+    public void setNombreInvitado(String nombreInvitado) {
+        this.nombreInvitado = nombreInvitado;
+    }
 
+    public Integer getCedulaInvitado() {
+        return cedulaInvitado;
+    }
 
+    public void setCedulaInvitado(Integer cedulaInvitado) {
+        this.cedulaInvitado = cedulaInvitado;
+    }
 
+    public LocalDate getFechaInvitacion() {
+        return fechaInvitacion;
+    }
+
+    public void setFechaInvitacion(LocalDate fechaInvitacion) {
+        this.fechaInvitacion = fechaInvitacion;
+    }
 
     @Override
     public void generarReporte(String datos) {
@@ -72,19 +95,19 @@ public class UsuarioMembresia extends Usuario implements IReporte, IAnalitica<Us
       usuario invitado que puede acceder desde la fecha de invitación y HASTA
           POR 5 DIAS a todos los descuentos de la app
     */
-    public void referenciarUsuarioInvitado(Usuario invitado) {
-        this.invitado = invitado;
+    public void referenciarUsuarioInvitado(Integer invitado) {
+        this.cedulaInvitado = invitado;
         this.fechaInvitacion = LocalDate.now();
     }
     public boolean AccesoADescuentosReferido() {
-        if (invitado != null) {
+        if (cedulaInvitado != null) {
             LocalDate fechaActual = LocalDate.now();
             LocalDate fechaVencimiento = fechaInvitacion.plusDays(5);
             return !fechaActual.isAfter(fechaVencimiento);
         }
         return false;
     }
-    public void agregarReferido(String agregarCedulaReferido){
+    public void agregarReferido(Integer agregarCedulaReferido){
 
     }
 
