@@ -5,6 +5,9 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.example.Entidades.EmpresaCultural;
 import org.example.ModeloDatos.ModeloEmpresaCultural;
+import org.example.ModeloDatos.ModeloUsuarioMembresia;
+
+import java.util.List;
 
 public class ServicioEmpresaCultural {
 
@@ -45,6 +48,36 @@ public class ServicioEmpresaCultural {
                 entityManager.close();
             }
 
+        }
+
+    }
+
+    public List<ModeloEmpresaCultural> buscarEmpresaCultural() {
+
+        String configuracionPersistencia = "conexionbd";
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager = null;
+
+        try {
+            entityManagerFactory = Persistence.createEntityManagerFactory(configuracionPersistencia);
+            entityManager = entityManagerFactory.createEntityManager();
+            // establecer una consulta para traer la BD
+            String jpqlConsulta = "SELECT ec FROM ModeloEmpresaCultural ec";
+            //ejecutar consulta - lista de datos
+            List<ModeloEmpresaCultural> empresaCultural = entityManager.createQuery(jpqlConsulta, ModeloEmpresaCultural.class).getResultList();
+            return empresaCultural;
+
+
+        } catch (Exception ex) {
+            System.out.println("Error "+ ex.getMessage());
+            return null;
+        }finally {
+            if(entityManager!= null){
+                entityManager.close();
+            }
+            if (entityManagerFactory!=null) {
+                entityManagerFactory.close();
+            }
         }
 
     }

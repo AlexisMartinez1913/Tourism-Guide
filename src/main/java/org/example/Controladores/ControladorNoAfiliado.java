@@ -1,7 +1,11 @@
 package org.example.Controladores;
 
 import org.example.Entidades.UsuarioPorEvento;
+import org.example.ModeloDatos.ModeloUsuarioMembresia;
+import org.example.ModeloDatos.ModeloUsuarioPorEvento;
 import org.example.Servicios.ServicioNoAfiliado;
+
+import java.util.List;
 
 public class ControladorNoAfiliado {
     UsuarioPorEvento usuarioPorEvento = new UsuarioPorEvento();
@@ -16,6 +20,17 @@ public class ControladorNoAfiliado {
 
         this.servicioNoAfiliado.registrarNoAfiliado(usuarioPorEvento);
 
+    }
+    public void consultarNoAfiliados() {
+        List<ModeloUsuarioPorEvento> usuarioNoAfiliado = servicioNoAfiliado.consultarUsuarioPorEvento();
+        for (ModeloUsuarioPorEvento noAfiliado: usuarioNoAfiliado) {
+            System.out.println("Documento: " + noAfiliado.getDocumento());
+            System.out.println("Nombre: " + noAfiliado.getNombres());
+            System.out.println("Correo: " + noAfiliado.getCorreo());
+            System.out.println("Ubicacion: " + noAfiliado.getUbicacion());
+            System.out.println("Costo Por Evento: " + noAfiliado.getCostoEvento());
+
+        }
     }
 }
 

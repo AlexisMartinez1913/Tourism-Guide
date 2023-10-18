@@ -23,10 +23,10 @@ public class Main {
         //controladorNoAfiliado.registrarNoAfiliado("122355555", "KarinaGuerro",
           //      "ka@gmail.com",2,100000);
 
-        //controladorEmpresaCultural.registrarEmpresaCultural("1237777777", "Mundial Café", 1, "Empresa de café", "Corp Calidad", "Llevar el café a todo el mundo", "ac@gmail.com", 4223312);
+        controladorEmpresaCultural.registrarEmpresaCultural("1237777777", "Mundial Café", 1, "Empresa de café", "Corp Calidad", "Llevar el café a todo el mundo", "ac@gmail.com", 4223312);
 
 
-        //controladorNoAfiliado.registrarNoAfiliado("123444444", "AndresGuerreroC","agc@gmail.com",2,30000);
+        controladorNoAfiliado.registrarNoAfiliado("123444444", "AndresGuerreroC","agc@gmail.com",2,30000);
 
         //construir un menu de opciones
         //1. registrar afiliado
@@ -34,7 +34,9 @@ public class Main {
         //3. registrar afiliado por evento
         //4. ver afiliado eventos
         //
-        controladorAfiliado.consultarAfiliados();
+        //controladorAfiliado.consultarAfiliados();
+        controladorNoAfiliado.consultarNoAfiliados();
+        controladorEmpresaCultural.consultarEmpresaCultural();
 
 
 

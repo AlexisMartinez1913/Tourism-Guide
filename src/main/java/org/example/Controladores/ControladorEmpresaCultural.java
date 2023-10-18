@@ -1,7 +1,11 @@
 package org.example.Controladores;
 
 import org.example.Entidades.EmpresaCultural;
+import org.example.ModeloDatos.ModeloEmpresaCultural;
+import org.example.ModeloDatos.ModeloUsuarioMembresia;
 import org.example.Servicios.ServicioEmpresaCultural;
+
+import java.util.List;
 
 public class ControladorEmpresaCultural {
     EmpresaCultural empresaCultural = new EmpresaCultural();
@@ -20,6 +24,20 @@ public class ControladorEmpresaCultural {
 
         this.servicioEmpresaCultural.registrarEmpresaCultural(empresaCultural);
 
+    }
+    public void consultarEmpresaCultural() {
+        List<ModeloEmpresaCultural> empresaCultural = servicioEmpresaCultural.buscarEmpresaCultural();
+        for (ModeloEmpresaCultural empresaCultural1: empresaCultural) {
+            System.out.println("Nit: " + empresaCultural1.getNit());
+            System.out.println("Nombre: " + empresaCultural1.getNombre());
+            System.out.println("Ubicación: " + empresaCultural1.getUbicacion());
+            System.out.println("Descripción: " + empresaCultural1.getDescripcion());
+            System.out.println("Entidad: " + empresaCultural1.getEntidad());
+            System.out.println("Misión: " + empresaCultural1.getMision());
+            System.out.println("Email Contacto: " + empresaCultural1.getEmailContacto());
+            System.out.println("Número Contacto: " + empresaCultural1.getNumeroContacto());
+
+        }
     }
 
 
