@@ -43,8 +43,59 @@ public class Main {
         //controladorEmpresaCultural.consultarEmpresaCultural();
         controladorEmpresaPrivada.consultarEmpresaPrivada();
 
+        //menu
+        Scanner scanner = new Scanner(System.in);
+        boolean entrada = true;
+        int opcion;
+        while(entrada){
+            System.out.println("Menu de opciones: ");
+            System.out.println("1. Registrar afiliado: ");
+            System.out.println("2. Registrar no afiliado");
+            System.out.println("3. Registrar empresa cultural: ");
+            System.out.println("4. Registrar empresa privada: ");
+            System.out.println("5. consultar afiliados: ");
+            System.out.println("6. consultar no afiliados: ");
+            System.out.println("7. consultar empresas culturales: ");
+            System.out.println("8. consultar empresas privadas: ");
+            System.out.println("9. Salir: ");
+            System.out.println("Seleccione una opcion: ");
+
+            opcion = scanner.nextInt();
+
+            switch (opcion){
+                case 1:
+                    //logica
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    //logica
+                    break;
+                case 4:
+                    //logica
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
+                    entrada = false;
+                    System.out.println("Salida");
+                    break;
+                default:
+                    System.out.println("Opcion invalida");
+                    break;
 
 
+
+            }
+
+
+        }
 
 
     }
