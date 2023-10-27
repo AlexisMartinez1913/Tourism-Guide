@@ -5,6 +5,7 @@ import org.example.Controladores.ControladorAfiliado;
 
 import org.example.Controladores.ControladorEmpresaCultural;
 
+import org.example.Controladores.ControladorEmpresaPrivada;
 import org.example.Controladores.ControladorNoAfiliado;
 
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Main {
         ControladorNoAfiliado controladorNoAfiliado = new ControladorNoAfiliado();
 
         ControladorEmpresaCultural controladorEmpresaCultural = new ControladorEmpresaCultural();
+        ControladorEmpresaPrivada controladorEmpresaPrivada = new ControladorEmpresaPrivada();
         //metodo para guardar afiliado
         //controladorAfiliado.registrarAfiliado("AndresGuerrero", "122455555","ag@gmail.com",3,50000);
 
@@ -23,10 +25,12 @@ public class Main {
         //controladorNoAfiliado.registrarNoAfiliado("122355555", "KarinaGuerro",
           //      "ka@gmail.com",2,100000);
 
-        controladorEmpresaCultural.registrarEmpresaCultural("1237777777", "Mundial Café", 1, "Empresa de café", "Corp Calidad", "Llevar el café a todo el mundo", "ac@gmail.com", 4223312);
+        //controladorEmpresaCultural.registrarEmpresaCultural("1237777777", "Mundial Café", 1, "Empresa de café", "Corp Calidad", "Llevar el café a todo el mundo", "ac@gmail.com", 4223312);
+        controladorEmpresaPrivada.registrarEmpresaPrivada("1234567899","Empresa De Hoteles sas",1,"Cadena de hoteles 3 estrellas","JanderBuriticaGarcia","1234567");
 
 
         controladorNoAfiliado.registrarNoAfiliado("123444444", "AndresGuerreroC","agc@gmail.com",2,30000);
+
 
         //construir un menu de opciones
         //1. registrar afiliado
@@ -35,8 +39,9 @@ public class Main {
         //4. ver afiliado eventos
         //
         //controladorAfiliado.consultarAfiliados();
-        controladorNoAfiliado.consultarNoAfiliados();
-        controladorEmpresaCultural.consultarEmpresaCultural();
+        //controladorNoAfiliado.consultarNoAfiliados();
+        //controladorEmpresaCultural.consultarEmpresaCultural();
+        controladorEmpresaPrivada.consultarEmpresaPrivada();
 
 
 
