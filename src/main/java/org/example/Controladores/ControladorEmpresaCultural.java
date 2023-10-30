@@ -6,13 +6,42 @@ import org.example.ModeloDatos.ModeloUsuarioMembresia;
 import org.example.Servicios.ServicioEmpresaCultural;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class ControladorEmpresaCultural {
     EmpresaCultural empresaCultural = new EmpresaCultural();
     //llamar a la clase que valida
     ServicioEmpresaCultural servicioEmpresaCultural = new ServicioEmpresaCultural();
 
-    public void registrarEmpresaCultural(String nit, String nombre, Integer ubicacion, String descripcion, String entidad, String mision, String email, Integer numeroContacto) {
+    public void registrarEmpresaCultural() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el NIT: ");
+        String nit = scanner.nextLine();
+
+        System.out.print("Ingrese el nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingrese la ubicación: ");
+        Integer ubicacion = Integer.valueOf(scanner.nextLine());
+
+        System.out.print("Ingrese la descripción: ");
+        String descripcion = scanner.nextLine();
+
+        System.out.print("Ingrese la entidad: ");
+        String entidad = scanner.nextLine();
+
+        System.out.print("Ingrese la misión: ");
+        String mision = scanner.nextLine();
+
+        System.out.print("Ingrese el correo de contacto: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Ingrese el número de contacto: ");
+        Integer numeroContacto = Integer.valueOf(scanner.nextLine());
+
+        scanner.close();
+
         this.empresaCultural.setNit(nit);
         this.empresaCultural.setNombre(nombre);
         this.empresaCultural.setUbicacion(ubicacion);
@@ -23,7 +52,6 @@ public class ControladorEmpresaCultural {
         this.empresaCultural.setNumeroContacto(numeroContacto);
 
         this.servicioEmpresaCultural.registrarEmpresaCultural(empresaCultural);
-
     }
     public void consultarEmpresaCultural() {
         List<ModeloEmpresaCultural> empresaCultural = servicioEmpresaCultural.buscarEmpresaCultural();

@@ -6,7 +6,12 @@
     <persistence-unit name="conexionbd" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Clases de entidad JPA -->
-        <class>com.example.modelos.AfiliadoModelo</class> <!-- Aquí debes incluir solo las MODELOS que deseas mapear -->
+        <class>com.example.ModeloDatos.ModeloUsuario</class> <!-- Aquí debes incluir solo las MODELOS que deseas mapear -->
+        <class>com.example.ModeloDatos.ModeloUsuarioMembresia</class>
+        <class>com.example.ModeloDatos.ModeloUsuarioPorEvento</class>
+        <class>com.example.ModeloDatos.ModeloEmpresaEmpresa</class>
+        <class>com.example.ModeloDatos.ModeloEmpresaCultural</class>
+        <class>com.example.ModeloDatos.ModeloEmpresaPrivada</class>
 
         <!-- Configuración de la base de datos -->
         <properties>

@@ -8,6 +8,7 @@ import org.example.Servicios.ServicioEmpresaCultural;
 import org.example.Servicios.ServicioEmpresaPrivada;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class ControladorEmpresaPrivada {
 
@@ -15,7 +16,31 @@ public class ControladorEmpresaPrivada {
     //llamar a la clase que valida
     ServicioEmpresaPrivada servicioEmpresaPrivada = new ServicioEmpresaPrivada();
 
-    public void registrarEmpresaPrivada(String nit, String nombre, Integer ubicacion, String descripcion, String nombreRepresentanteLegal, String cedulaRepresentanteLegal) {
+    public void registrarEmpresaPrivada() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el NIT: ");
+        String nit = scanner.nextLine();
+
+        System.out.print("Ingrese el nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingrese la ubicación: ");
+        Integer ubicacion = Integer.valueOf(scanner.nextLine());
+
+        System.out.print("Ingrese la descripción: ");
+        String descripcion = scanner.nextLine();
+
+        System.out.print("Ingrese el nombre del representante legal: ");
+        String nombreRepresentanteLegal = scanner.nextLine();
+
+        System.out.print("Ingrese la cédula del representante legal: ");
+        String cedulaRepresentanteLegal = scanner.nextLine();
+
+
+        scanner.close();
+
+
         this.empresaPrivada.setNit(nit);
         this.empresaPrivada.setNombre(nombre);
         this.empresaPrivada.setUbicacion(ubicacion);
@@ -25,7 +50,6 @@ public class ControladorEmpresaPrivada {
 
 
         this.servicioEmpresaPrivada.registrarEmpresaPrivada(empresaPrivada);
-
     }
     public void consultarEmpresaPrivada() {
         List<ModeloEmpresaPrivada> empresaPrivada = servicioEmpresaPrivada.buscarEmpresaPrivada();
