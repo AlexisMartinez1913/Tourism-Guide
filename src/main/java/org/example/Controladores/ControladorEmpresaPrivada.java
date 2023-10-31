@@ -38,7 +38,7 @@ public class ControladorEmpresaPrivada {
         String cedulaRepresentanteLegal = scanner.nextLine();
 
 
-        scanner.close();
+        //scanner.close();
 
 
         this.empresaPrivada.setNit(nit);

@@ -40,7 +40,7 @@ public class ControladorAfiliado {
         System.out.print("Ingrese la mensualidad: ");
         double mensualidad = scanner.nextDouble();
 
-        scanner.close();
+        //scanner.close();
 
         this.usuarioMembresia.setNombres(nombre);
         this.usuarioMembresia.setDocumento(documento);

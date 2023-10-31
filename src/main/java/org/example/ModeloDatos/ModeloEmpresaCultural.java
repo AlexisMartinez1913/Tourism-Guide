@@ -57,4 +57,6 @@ public class ModeloEmpresaCultural extends ModeloEmpresa{
     public void setNumeroContacto(Integer numeroContacto) {
         this.numeroContacto = numeroContacto;
     }
+
+
 }

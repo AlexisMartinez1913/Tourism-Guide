@@ -60,7 +60,7 @@ public class ControladorNoAfiliado {
                 entityManagerFactory.close();
             }
         }
-        scanner.close();
+        //scanner.close();
     }
     public void consultarNoAfiliados() {
         List<ModeloUsuarioPorEvento> usuarioNoAfiliado = servicioNoAfiliado.consultarUsuarioPorEvento();

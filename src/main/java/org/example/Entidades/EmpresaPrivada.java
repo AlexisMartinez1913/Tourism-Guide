@@ -31,6 +31,9 @@ public class EmpresaPrivada extends Empresa {
 
     @Override
     public Double cobrar() {
-        return null;
+
+        double tarifaBase = 2200000.0;
+        double iva = tarifaBase * 0.10; // 10% de IVA
+        return tarifaBase + iva;
     }
 }

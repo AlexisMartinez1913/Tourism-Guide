@@ -18,10 +18,7 @@ public class EmpresaCultural extends Empresa implements IReporte {
     public EmpresaCultural() {
     }
 
-    @Override
-    public Double cobrar() {
-        return null;
-    }
+
 
 
     public EmpresaCultural(Integer id, String nit, String nombre, Integer ubicacion, String descripcion, String entidad, String mision, String emailContacto, Integer numeroContacto) {
@@ -65,6 +62,14 @@ public class EmpresaCultural extends Empresa implements IReporte {
         this.numeroContacto = numeroContacto;
     }
 
+
+    @Override
+    public Double cobrar() {
+
+        double tarifaBase = 1200000.0;
+        double iva = tarifaBase * 0.10;
+        return tarifaBase + iva;
+    }
     @Override
     public void generarReporte(String datos) {
 

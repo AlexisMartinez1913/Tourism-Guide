@@ -40,7 +40,7 @@ public class ControladorEmpresaCultural {
         System.out.print("Ingrese el número de contacto: ");
         Integer numeroContacto = Integer.valueOf(scanner.nextLine());
 
-        scanner.close();
+        //scanner.close();
 
         this.empresaCultural.setNit(nit);
         this.empresaCultural.setNombre(nombre);
